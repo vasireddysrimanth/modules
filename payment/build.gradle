@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     id 'kotlin-parcelize'
+    id 'maven-publish'
 }
 
 android {
@@ -42,17 +43,14 @@ dependencies {
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
 }
-
-
 publishing {
     publications {
         bar(MavenPublication) {
             groupId = 'com.dev.payment'
             artifactId = 'payment'
-            version = '1.0.0.1'
+            version = '1.0.0.4.8'
             artifact("$buildDir/outputs/aar/payment-release.aar")
 
-            // This will include all dependencies (including AppAuth)
             pom {
                 withXml {
                     def dependenciesNode = asNode().appendNode('dependencies')
@@ -67,17 +65,17 @@ publishing {
                     }
                 }
             }
-
         }
     }
     repositories {
         maven {
-            name = "GithubPackages"
-            url = uri("https://maven.pkg.github.com/oneposretail/ops_android_utils")
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/vasireddysrimanth/modules")
             credentials {
-                username = System.getenv("GITHUB_USERNAME")
-                password = System.getenv("GITHUB_TOKEN")
+                username = "vasireddysrimanth"
+                password = "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"
             }
         }
     }
 }
+
