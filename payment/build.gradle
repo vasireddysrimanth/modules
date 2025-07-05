@@ -72,8 +72,6 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/vasireddysrimanth/modules")
             credentials {
-                username = "vasireddysrimanth"
-                password = "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"
             }
         }
     }
